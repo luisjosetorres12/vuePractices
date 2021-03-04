@@ -10,16 +10,12 @@
 <body>
     <div id="app">
         {{message}}
-
-        <span v-bind:title="message">
-          Hover your mouse over me for a few seconds
-          to see my dynamically bound title!
-        </span>
+      
+      <div>
+        <button @click="cambiarMensaje">Cambiar Mensaje</button>
+      </div>
     </div>
 
-    <div id="app-2">
-      {{message}}
-  </div>
 </body>
 </html>
 <script>
@@ -43,26 +39,31 @@
     Tiene una forma corta para poder usarla y es con el @
     Ej: @click="mi Funcion"
 
+        Para este ejemplo adelantare un poco y usare el objeto methods.
+        Crearemos un metodo llamado cambiarMensaje.
+        Este metodo es muy sencillo y si unica funcion es que: Cuando demos click al boton, se cambiara el mensaje.
+
     V-bind:
     Esta directiva nos permite asignar a un atributo html (O prop de algun componente), un valor que tengamos definido en nuestra instancia de vue
 
     Ej2: v-bind:value="miVariable"
+
+
+
+  
   */
   const app = new Vue({
     el: '#app',
     data(){
       return{
-        message: 'Hello from Vue using CDN'
+        message: 'Este es el mensaje Inicial, pero cuando presiones el boton, el mensaje cambiara',
       }
-    }
+    },
+    methods: {
+      cambiarMensaje() {
+        this.message = 'Seguro has precionado el boton, porque el mensaje ha cambiado'
+      }
+    },
   })
 
-  const app2 = new Vue({
-    el: '#app-2',
-    data(){
-      return{
-        message:'Second Vue Instance'
-      }
-    }
-  })
 </script>
