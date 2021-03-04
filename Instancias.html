@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Vue With CDN</title>
+</head>
+<body>
+    <div id="app">
+        {{global}}
+    </div>
+
+    <div id="app-2">
+      Global en componente 2 {{secondGlobal}}
+  </div>
+</body>
+</html>
+<script>
+  //Es posible crear dos o mas instancias ded Vue
+  /*
+  Desde la consola podemos acceder a la instancia de app
+  */
+
+  /*
+  1. Prueba
+    Probaremos definiento un valor global y ver si lo podemos pasar a alguna instancia
+    Resultado = Si se puede pasar una variable al objeto data de una instancia de Vue
+
+  2. Prueba
+    Pasarla la variable a la segunda instancia
+
+    Resultado = Si se puede pasar una variable a una o mas instancias de vue
+
+  3. Prueba
+    Modificar la variable global en alguna instancia 
+
+  */
+
+  let myGlobalValue = 'Variable Global'
+  const app = new Vue({
+    el: '#app',
+    data(){
+      return{
+        message: 'Hello from Vue using CDN',
+        global: myGlobalValue
+      }
+    }
+  })
+
+  const app2 = new Vue({
+    el: '#app-2',
+    data(){
+      return{
+        message:'Second Vue Instance',
+        secondGlobal: myGlobalValue
+      }
+    }
+  })
+</script>

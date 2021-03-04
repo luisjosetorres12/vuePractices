@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue With CDN</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-show="show">
+            {{message}}
+        </div>
+        <button @click="show = !show">Ocultar Mensaje</button>
+    </div>
+</body>
+
+<!--
+    Con VueJs podemos usar condicionales y bucles
+
+    Condicionales:
+      V-if: Es como un if normal en Javascript, su funcion es validar si se cumple una funcion renderizar algun elemento. Y en caso de que no, no crea
+      Dicho elemento.
+
+      V-show: 
+-->
+<script>
+    const app = new Vue({
+        el :'#app',
+        data(){
+            return{
+                show: true,
+                message: 'Ahora me ves',
+                messageTwo: 'Ahora no'
+            }
+        }
+    })
+</script>
+</html>

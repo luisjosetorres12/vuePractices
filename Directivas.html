@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Vue With CDN</title>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+
+        <span v-bind:title="message">
+          Hover your mouse over me for a few seconds
+          to see my dynamically bound title!
+        </span>
+    </div>
+
+    <div id="app-2">
+      {{message}}
+  </div>
+</body>
+</html>
+<script>
+  //Is Possible create and use two vue instances at same time
+  /*
+  Desde la consola podemos acceder a la instancia de app
+  */
+
+  /*
+    Directivas:
+
+    Directivas son pequeños comandos por asi decirlo, los cuales podras adjuntarlos al DOM.
+    Ellos usan el prefijo v- para poder dar a entender al framework que estamos hablando de una directiva.
+
+    Directivas
+
+    V-on:
+    Esta directiva es usada para poder escuchar los eventos emitidos por los elementos del DOM y a su vez poder asignarles acciones a los mismos.
+    Ej: v-on:click (Directiva usada para poder asignar una funcion al evento click)
+
+    Tiene una forma corta para poder usarla y es con el @
+    Ej: @click="mi Funcion"
+
+    V-bind:
+    Esta directiva nos permite asignar a un atributo html (O prop de algun componente), un valor que tengamos definido en nuestra instancia de vue
+
+    Ej2: v-bind:value="miVariable"
+  */
+  const app = new Vue({
+    el: '#app',
+    data(){
+      return{
+        message: 'Hello from Vue using CDN'
+      }
+    }
+  })
+
+  const app2 = new Vue({
+    el: '#app-2',
+    data(){
+      return{
+        message:'Second Vue Instance'
+      }
+    }
+  })
+</script>
